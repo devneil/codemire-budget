@@ -19,7 +19,7 @@ namespace HomeBudget.ModelTest
         [Test]
         public void ZeroBalance_ZeroPayment_BalanceStaysSame()
         {
-            _budget.AddIncome(new Income(0, Term.OneOff, DateTime.Now));
+            _budget.AddIncome(new Income(0, null, DateTime.Now));
 
             var balance = _budget.GetBalanceAtDate(DateTime.Now);
 
@@ -29,7 +29,7 @@ namespace HomeBudget.ModelTest
         [Test]
         public void ZeroBalance_Payment_BalanceIncreases()
         {
-            _budget.AddIncome(new Income(200, Term.OneOff, DateTime.Now));
+            _budget.AddIncome(new Income(200, null, DateTime.Now));
 
             var balance = _budget.GetBalanceAtDate(DateTime.Now.AddYears(1));
 

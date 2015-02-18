@@ -15,10 +15,10 @@ namespace HomeBudget.ModelTest
         {
             _budget = new Budget();
 
-            _budget.AddIncome(new Income(100, Term.OneOff, DateTime.Now));
-            _budget.AddIncome(new Income(500, Term.Monthly, DateTime.Now.AddDays(1)));
-            _budget.AddIncome(new Income(200, Term.Weekly, DateTime.Now.AddDays(3)));
-            _budget.AddIncome(new Income(300, Term.Fortnightly, DateTime.Now.AddDays(10)));
+            _budget.AddIncome(new Income(100, null, DateTime.Now));
+            _budget.AddIncome(new Income(500, new Monthly(), DateTime.Now.AddDays(1)));
+            _budget.AddIncome(new Income(200, new Weekly(), DateTime.Now.AddDays(3)));
+            _budget.AddIncome(new Income(300, new Fortnightly(), DateTime.Now.AddDays(10)));
 
             BalanceAfterDays(0, 100);
             BalanceAfterDays(1, 600);

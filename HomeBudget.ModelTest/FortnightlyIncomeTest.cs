@@ -18,7 +18,7 @@ namespace HomeBudget.ModelTest
         [Test]
         public void ZeroBalance_ZeroIncome_NoChangeToBalance()
         {
-            _budget.AddIncome(new Income(0, Term.Fortnightly, DateTime.Now));
+            _budget.AddIncome(new Income(0, new Fortnightly(), DateTime.Now));
 
             decimal balance = _budget.GetBalanceAtDate(DateTime.Now.AddMonths(3));
 
@@ -36,7 +36,7 @@ namespace HomeBudget.ModelTest
         [TestCase(8, 500)]
         public void PaydayFortnightlyIncomeContinuallyPaid(int weeks, decimal expected)
         {
-            _budget.AddIncome(new Income(100, Term.Fortnightly, DateTime.Now));
+            _budget.AddIncome(new Income(100, new Fortnightly(), DateTime.Now));
 
             decimal balance = _budget.GetBalanceAtDate(DateTime.Now.AddDays(7 * weeks));
 
@@ -50,7 +50,7 @@ namespace HomeBudget.ModelTest
         [TestCase(4, 200)]
         public void BeforePaydayFortnightlyIncomeContinuallyPaid(int weeks, decimal expected)
         {
-            _budget.AddIncome(new Income(100, Term.Fortnightly, DateTime.Now.AddDays(2)));
+            _budget.AddIncome(new Income(100, new Fortnightly(), DateTime.Now.AddDays(2)));
 
             decimal balance = _budget.GetBalanceAtDate(DateTime.Now.AddDays(7*weeks));
 

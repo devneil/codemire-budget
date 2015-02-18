@@ -30,23 +30,19 @@ namespace HomeBudget.Model
             {
                 DateTime newDate = income.NextPayDate;
 
-                while (atDate.Date >= newDate)
+                if (income.PerTerm == null)
                 {
-                    balance += income.NetValue;
-                    switch (income.PerTerm)
+                    if (atDate.Date >= newDate)
                     {
-                        case Term.Monthly:
-                            newDate = newDate.AddMonths(1);
-                            break;
-                        case Term.Fortnightly:
-                            newDate = newDate.AddDays(14);
-                            break;
-                        case Term.Weekly:
-                            newDate = newDate.AddDays(7);
-                            break;
-                        case Term.OneOff:
-                            newDate = atDate.AddDays(1);
-                            break;
+                        balance += income.NetValue;
+                    }
+                }
+                else
+                {
+                    while (atDate.Date >= newDate)
+                    {
+                        balance += income.NetValue;
+                        newDate = income.PerTerm.AddTerm(newDate);
                     }
                 }
             }
