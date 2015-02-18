@@ -31,7 +31,18 @@ namespace HomeBudget.Model
             while (atDate.Date >= newDate)
             {
                 _budget += _income.NetValue;
-                newDate = newDate.AddMonths(1);
+                switch (_income.PerTerm)
+                {
+                    case Term.Monthly:
+                        newDate = newDate.AddMonths(1);
+                        break;
+                    case Term.Fortnightly:
+                        newDate = newDate.AddDays(14);
+                        break;
+                    case Term.Weekly:
+                        newDate = newDate.AddDays(7);
+                        break;
+                }
             }
 
             return _budget;

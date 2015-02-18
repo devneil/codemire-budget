@@ -2,7 +2,9 @@
 {
     public enum Term
     {
-        Monthly
+        Monthly,
+        Fortnightly,
+        Weekly
     }
 
 }

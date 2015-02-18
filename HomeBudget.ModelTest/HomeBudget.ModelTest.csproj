@@ -51,6 +51,7 @@
     <Compile Include="FortnightlyIncomeTest.cs" />
     <Compile Include="MonthlyIncomeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeeklyIncomeTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

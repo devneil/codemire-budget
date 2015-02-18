@@ -45,6 +45,7 @@ namespace HomeBudget.ModelTest
             balance.Should().Be(100);
         }
         
+        [TestCase(0, 100)]
         [TestCase(1, 200)]
         [TestCase(2, 300)]
         [TestCase(3, 400)]
@@ -58,6 +59,7 @@ namespace HomeBudget.ModelTest
             balance.Should().Be(expected);
         }
 
+        [TestCase(0, 0)]
         [TestCase(1, 100)]
         [TestCase(2, 200)]
         [TestCase(3, 300)]
