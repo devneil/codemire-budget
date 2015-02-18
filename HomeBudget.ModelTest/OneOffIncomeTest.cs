@@ -8,13 +8,20 @@ namespace HomeBudget.ModelTest
     [TestFixture]
     public class OneOffIncomeTest
     {
+        private Budget _budget;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _budget = new Budget(100);
+        }
+
         [Test]
         public void ZeroBalance_ZeroPayment_BalanceStaysSame()
         {
-            var budget = new Budget(100);
-            budget.AddIncome(new Income(0, Term.OneOff, DateTime.Now));
+            _budget.AddIncome(new Income(0, Term.OneOff, DateTime.Now));
 
-            var balance = budget.GetBalanceAtDate(DateTime.Now);
+            var balance = _budget.GetBalanceAtDate(DateTime.Now);
 
             balance.Should().Be(100);
         }
@@ -22,14 +29,12 @@ namespace HomeBudget.ModelTest
         [Test]
         public void ZeroBalance_Payment_BalanceIncreases()
         {
-            var budget = new Budget(100);
-            budget.AddIncome(new Income(200, Term.OneOff, DateTime.Now));
+            _budget.AddIncome(new Income(200, Term.OneOff, DateTime.Now));
 
-            var balance = budget.GetBalanceAtDate(DateTime.Now.AddYears(1));
+            var balance = _budget.GetBalanceAtDate(DateTime.Now.AddYears(1));
 
             balance.Should().Be(300);
         }
-
-
+        
     }
 }

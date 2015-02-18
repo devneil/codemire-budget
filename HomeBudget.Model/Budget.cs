@@ -1,54 +1,56 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace HomeBudget.Model
 {
     public class Budget
     {
-        private Income _income;
-        private decimal _budget;
+        private readonly List<Income> _incomes = new List<Income>();
+        private decimal _balance;
 
         public Budget()
         {
-            _budget = 0;
+            _balance = 0;
         }
 
-        public Budget(decimal budget)
+        public Budget(decimal balance)
         {
-            _budget = budget;
+            _balance = balance;
         }
 
         public void AddIncome(Income income)
         {
-            _income = income;
+            _incomes.Add(income);
         }
 
         public decimal GetBalanceAtDate(DateTime atDate)
         {
-            if (_income == null) return _budget;
-
-            DateTime newDate = _income.NextPayDate;
-
-            while (atDate.Date >= newDate)
+            decimal balance = _balance;
+            foreach (var income in _incomes)
             {
-                _budget += _income.NetValue;
-                switch (_income.PerTerm)
+                DateTime newDate = income.NextPayDate;
+
+                while (atDate.Date >= newDate)
                 {
-                    case Term.Monthly:
-                        newDate = newDate.AddMonths(1);
-                        break;
-                    case Term.Fortnightly:
-                        newDate = newDate.AddDays(14);
-                        break;
-                    case Term.Weekly:
-                        newDate = newDate.AddDays(7);
-                        break;
-                    case Term.OneOff:
-                        newDate = atDate.AddDays(1);
-                        break;
+                    balance += income.NetValue;
+                    switch (income.PerTerm)
+                    {
+                        case Term.Monthly:
+                            newDate = newDate.AddMonths(1);
+                            break;
+                        case Term.Fortnightly:
+                            newDate = newDate.AddDays(14);
+                            break;
+                        case Term.Weekly:
+                            newDate = newDate.AddDays(7);
+                            break;
+                        case Term.OneOff:
+                            newDate = atDate.AddDays(1);
+                            break;
+                    }
                 }
             }
-
-            return _budget;
+            return balance;
         }
     }
 }
