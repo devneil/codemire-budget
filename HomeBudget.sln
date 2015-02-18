@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeBudget", "HomeBudget\HomeBudget.csproj", "{F514F40D-33FC-40B2-8501-05811BEF501B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeBudget.Model", "HomeBudget.Model\HomeBudget.Model.csproj", "{F08F974E-184D-4FEF-82BD-66D112FC0D13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeBudget.ModelTest", "HomeBudget.ModelTest\HomeBudget.ModelTest.csproj", "{D63AAC48-F11D-46A2-8508-070673770EB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F514F40D-33FC-40B2-8501-05811BEF501B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F514F40D-33FC-40B2-8501-05811BEF501B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F514F40D-33FC-40B2-8501-05811BEF501B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F514F40D-33FC-40B2-8501-05811BEF501B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F08F974E-184D-4FEF-82BD-66D112FC0D13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F08F974E-184D-4FEF-82BD-66D112FC0D13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F08F974E-184D-4FEF-82BD-66D112FC0D13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F08F974E-184D-4FEF-82BD-66D112FC0D13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D63AAC48-F11D-46A2-8508-070673770EB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D63AAC48-F11D-46A2-8508-070673770EB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D63AAC48-F11D-46A2-8508-070673770EB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D63AAC48-F11D-46A2-8508-070673770EB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
