@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="FortnightlyIncomeTest.cs" />
     <Compile Include="MonthlyIncomeTest.cs" />
+    <Compile Include="OneOffIncomeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WeeklyIncomeTest.cs" />
   </ItemGroup>

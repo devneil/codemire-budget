@@ -56,6 +56,5 @@ namespace HomeBudget.ModelTest
 
             balance.Should().Be(expected);
         }
-
     }
 }

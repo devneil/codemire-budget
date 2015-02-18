@@ -42,6 +42,9 @@ namespace HomeBudget.Model
                     case Term.Weekly:
                         newDate = newDate.AddDays(7);
                         break;
+                    case Term.OneOff:
+                        newDate = atDate.AddDays(1);
+                        break;
                 }
             }
 

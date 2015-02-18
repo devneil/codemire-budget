@@ -4,7 +4,8 @@
     {
         Monthly,
         Fortnightly,
-        Weekly
+        Weekly,
+        OneOff
     }
 
 }
