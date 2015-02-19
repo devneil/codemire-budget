@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BudgetIncomeTest.cs" />
+    <Compile Include="ExpenseTest.cs" />
     <Compile Include="FortnightlyIncomeTest.cs" />
     <Compile Include="MonthlyIncomeTest.cs" />
     <Compile Include="OneOffIncomeTest.cs" />

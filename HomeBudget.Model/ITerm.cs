@@ -6,4 +6,11 @@ namespace HomeBudget.Model
     {
         DateTime AddTerm(DateTime toThis);
     }
+
+    public interface ITransaction
+    {
+        Decimal CalcValue { get; }
+        DateTime OnDate { get; }
+        ITerm PerTerm { get; }
+    }
 }
