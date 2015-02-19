@@ -3,17 +3,17 @@ using System.Collections.Generic;
 
 namespace HomeBudget.Model
 {
-    public class Budget
+    public class Account
     {
         private readonly List<ITransaction> _transactions = new List<ITransaction>();
         private decimal _balance;
         
-        public Budget()
+        public Account()
         {
             _balance = 0;
         }
 
-        public Budget(decimal balance)
+        public Account(decimal balance)
         {
             _balance = balance;
         }

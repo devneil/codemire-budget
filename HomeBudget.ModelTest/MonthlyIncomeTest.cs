@@ -8,21 +8,21 @@ namespace HomeBudget.ModelTest
     [TestFixture]
     public class MonthlyIncomeTest
     {
-        private Budget _budget;
+        private Account _account;
 
         [SetUp]
         public void SetUp()
         {
-            _budget = new Budget();
+            _account = new Account();
         }
 
         [Test]
         public void ZeroBalance_ZeroIncome_NoChangeToBalance()
         {
-            _budget.AddIncome(new Income(0, DateTime.Now, new Monthly()));
+            _account.AddIncome(new Income(0, DateTime.Now, new Monthly()));
 
             DateTime addMonths = DateTime.Now.AddMonths(3);
-            decimal balance = _budget.GetBalanceAtDate(addMonths);
+            decimal balance = _account.GetBalanceAtDate(addMonths);
 
             balance.Should().Be(0);
         }
@@ -30,7 +30,7 @@ namespace HomeBudget.ModelTest
         [Test]
         public void ZeroBalance_NoIncomeSet_NoChangeToBalance()
         {
-            decimal balance = _budget.GetBalanceAtDate(DateTime.Now.AddMonths(3));
+            decimal balance = _account.GetBalanceAtDate(DateTime.Now.AddMonths(3));
 
             balance.Should().Be(0);
         }
@@ -38,9 +38,9 @@ namespace HomeBudget.ModelTest
         [Test]
         public void ZeroBalance_MonthlyIncomePaid()
         {
-            _budget.AddIncome(new Income(100, DateTime.Now, new Monthly()));
+            _account.AddIncome(new Income(100, DateTime.Now, new Monthly()));
 
-            decimal balance = _budget.GetBalanceAtDate(DateTime.Now);
+            decimal balance = _account.GetBalanceAtDate(DateTime.Now);
 
             balance.Should().Be(100);
         }
@@ -52,9 +52,9 @@ namespace HomeBudget.ModelTest
         [TestCase(4, 500)]
         public void PaydayMonthlyIncomeContinuallyPaid(int months, decimal expected)
         {
-            _budget.AddIncome(new Income(100, DateTime.Now, new Monthly()));
+            _account.AddIncome(new Income(100, DateTime.Now, new Monthly()));
 
-            decimal balance = _budget.GetBalanceAtDate(DateTime.Now.AddMonths(months));
+            decimal balance = _account.GetBalanceAtDate(DateTime.Now.AddMonths(months));
 
             balance.Should().Be(expected);
         }
@@ -66,9 +66,9 @@ namespace HomeBudget.ModelTest
         [TestCase(4, 400)]
         public void BeforePaydayMonthlyIncomeContinuallyPaid(int months, decimal expected)
         {
-            _budget.AddIncome(new Income(100, DateTime.Now.AddDays(2), new Monthly()));
+            _account.AddIncome(new Income(100, DateTime.Now.AddDays(2), new Monthly()));
 
-            decimal balance = _budget.GetBalanceAtDate(DateTime.Now.AddMonths(months));
+            decimal balance = _account.GetBalanceAtDate(DateTime.Now.AddMonths(months));
 
             balance.Should().Be(expected);
         }

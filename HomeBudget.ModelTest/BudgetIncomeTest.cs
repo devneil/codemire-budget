@@ -6,19 +6,19 @@ using NUnit.Framework;
 namespace HomeBudget.ModelTest
 {
     [TestFixture]
-    public class BudgetIncomeTest
+    public class AccountIncomeTest
     {
-        private Budget _budget;
+        private Account _account;
 
         [Test]
         public void CombinedIncomes()
         {
-            _budget = new Budget();
+            _account = new Account();
 
-            _budget.AddIncome(new Income(100, DateTime.Now));
-            _budget.AddIncome(new Income(500, DateTime.Now.AddDays(1), new Monthly()));
-            _budget.AddIncome(new Income(200, DateTime.Now.AddDays(3), new Weekly()));
-            _budget.AddIncome(new Income(300, DateTime.Now.AddDays(10), new Fortnightly()));
+            _account.AddIncome(new Income(100, DateTime.Now));
+            _account.AddIncome(new Income(500, DateTime.Now.AddDays(1), new Monthly()));
+            _account.AddIncome(new Income(200, DateTime.Now.AddDays(3), new Weekly()));
+            _account.AddIncome(new Income(300, DateTime.Now.AddDays(10), new Fortnightly()));
 
             BalanceAfterDays(0, 100);
             BalanceAfterDays(1, 600);
@@ -31,7 +31,7 @@ namespace HomeBudget.ModelTest
 
         private void BalanceAfterDays(int days, int expected)
         {
-            _budget.GetBalanceAtDate(DateTime.Now.AddDays(days)).Should().Be(expected);
+            _account.GetBalanceAtDate(DateTime.Now.AddDays(days)).Should().Be(expected);
         }
     }
 }

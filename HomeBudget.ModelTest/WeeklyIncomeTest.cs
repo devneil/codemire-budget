@@ -8,19 +8,19 @@ namespace HomeBudget.ModelTest
     [TestFixture]
     public class WeeklyIncomeTest
     {
-        private Budget _budget;
+        private Account _account;
 
         [SetUp]
         public void SetUp()
         {
-            _budget = new Budget();
+            _account = new Account();
         }
         [Test]
         public void ZeroBalance_ZeroIncome_NoChangeToBalance()
         {
-            _budget.AddIncome(new Income(0, DateTime.Now, new Weekly()));
+            _account.AddIncome(new Income(0, DateTime.Now, new Weekly()));
 
-            decimal balance = _budget.GetBalanceAtDate(DateTime.Now.AddMonths(3));
+            decimal balance = _account.GetBalanceAtDate(DateTime.Now.AddMonths(3));
 
             balance.Should().Be(0);
         }
@@ -36,9 +36,9 @@ namespace HomeBudget.ModelTest
         [TestCase(8, 900)]
         public void PaydayWeeklyIncomeContinuallyPaid(int weeks, decimal expected)
         {
-            _budget.AddIncome(new Income(100, DateTime.Now, new Weekly()));
+            _account.AddIncome(new Income(100, DateTime.Now, new Weekly()));
 
-            decimal balance = _budget.GetBalanceAtDate(DateTime.Now.AddDays(7 * weeks));
+            decimal balance = _account.GetBalanceAtDate(DateTime.Now.AddDays(7 * weeks));
 
             balance.Should().Be(expected);
         }
@@ -50,9 +50,9 @@ namespace HomeBudget.ModelTest
         [TestCase(4, 400)]
         public void BeforePaydayWeeklyIncomeContinuallyPaid(int weeks, decimal expected)
         {
-            _budget.AddIncome(new Income(100, DateTime.Now.AddDays(2), new Weekly()));
+            _account.AddIncome(new Income(100, DateTime.Now.AddDays(2), new Weekly()));
 
-            decimal balance = _budget.GetBalanceAtDate(DateTime.Now.AddDays(7 * weeks));
+            decimal balance = _account.GetBalanceAtDate(DateTime.Now.AddDays(7 * weeks));
 
             balance.Should().Be(expected);
         }
