@@ -58,5 +58,4 @@ namespace HomeBudget.ModelTest
             _account.GetBalanceAtDate(DateTime.Now.AddDays(days)).Should().Be(expected);
         }
     }
-
 }
