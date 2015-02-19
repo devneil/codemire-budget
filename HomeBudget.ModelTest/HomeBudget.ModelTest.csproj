@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BudgetIncomeTest.cs" />
+    <Compile Include="AccountIncomeTest.cs" />
     <Compile Include="ExpenseTest.cs" />
     <Compile Include="FortnightlyIncomeTest.cs" />
     <Compile Include="MonthlyIncomeTest.cs" />
