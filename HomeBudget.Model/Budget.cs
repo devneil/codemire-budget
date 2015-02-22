@@ -28,5 +28,16 @@ namespace HomeBudget.Model
         {
             return GetPosition(DateTime.Now);
         }
+
+        public AccountDataPoints GetBalanceRange(DateTime startDate, DateTime endDate)
+        {
+            var points = new AccountDataPoints();
+
+            foreach (var account in _accounts)
+            {
+                points.AddPoints(account.AccountName, account.GetBalanceRange(startDate, endDate));
+            }
+            return points;
+        }
     }
 }

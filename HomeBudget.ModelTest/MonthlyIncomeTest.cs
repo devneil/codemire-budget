@@ -13,7 +13,7 @@ namespace HomeBudget.ModelTest
         [SetUp]
         public void SetUp()
         {
-            _account = new Account();
+            _account = new Account("");
         }
 
         [Test]

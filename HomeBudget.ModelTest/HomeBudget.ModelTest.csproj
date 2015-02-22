@@ -52,6 +52,7 @@
     <Compile Include="BudgetTest.cs" />
     <Compile Include="ExpenseTest.cs" />
     <Compile Include="FortnightlyIncomeTest.cs" />
+    <Compile Include="GraphDataTest.cs" />
     <Compile Include="MonthlyIncomeTest.cs" />
     <Compile Include="OneOffIncomeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

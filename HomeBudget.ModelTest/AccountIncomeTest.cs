@@ -13,7 +13,7 @@ namespace HomeBudget.ModelTest
         [Test]
         public void CombinedIncomes()
         {
-            _account = new Account();
+            _account = new Account("");
 
             _account.AddIncome(new Income(100, DateTime.Now));
             _account.AddIncome(new Income(500, DateTime.Now.AddDays(1), new Monthly()));
