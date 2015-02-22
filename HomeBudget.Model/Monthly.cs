@@ -8,5 +8,11 @@ namespace HomeBudget.Model
         {
             return toThis.AddMonths(1);
         }
+
+        public bool IsMatchingDate(DateTime referenceDate, DateTime targetDate)
+        {
+            return ((targetDate.Day == referenceDate.Day) && (targetDate >= referenceDate));
+        }
+
     }
 }

@@ -5,7 +5,7 @@ namespace HomeBudget.Model
 {
     public class Account
     {
-        private readonly List<ITransaction> _transactions = new List<ITransaction>();
+        private readonly List<Transaction> _transactions = new List<Transaction>();
         private decimal _balance;
         
         public Account(string name)
@@ -59,6 +59,29 @@ namespace HomeBudget.Model
             return balance;
         }
 
+        private DataPoints RunningTotalsBetweenDates(DateTime start, DateTime end)
+        {
+            var pts = new DataPoints();
+
+            decimal balance = GetBalanceAtDate(start);
+
+            pts.AddPoint(start, balance);
+
+            for (DateTime dt = start.AddDays(1); dt <= end; dt = dt.AddDays(1))
+            {
+                foreach (var tran in _transactions)
+                {
+                    if (tran.IsPayDate(dt))
+                    {
+                        balance += tran.CalcValue;
+                    }
+                }
+                pts.AddPoint(dt, balance);
+            }
+
+            return pts;
+
+        }
         public void AddExpense(Expense expense)
         {
             _transactions.Add(expense);
@@ -66,12 +89,7 @@ namespace HomeBudget.Model
 
         public DataPoints GetBalanceRange(DateTime startDate, DateTime endDate)
         {
-            var pts = new DataPoints();
-            for (DateTime dt = startDate.Date; dt <= endDate.Date; dt = dt.AddDays(1))
-            {
-                pts.AddPoint(dt, GetBalanceAtDate(dt));
-            }
-            return pts;
+            return RunningTotalsBetweenDates(startDate.Date, endDate.Date);
         }
     }
 }

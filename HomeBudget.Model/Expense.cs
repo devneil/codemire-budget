@@ -2,25 +2,19 @@
 
 namespace HomeBudget.Model
 {
-    public class Expense : ITransaction
+    public class Expense : Transaction
     {
-        public decimal Value { get; private set; }
-        public ITerm PerTerm { get; private set; }
-        public DateTime OnDate { get; private set; }
-        public Decimal CalcValue { get { return -(Value); } }
-
-        public Expense(decimal value, DateTime date)
+        public Expense(decimal netValue, DateTime nextPayDate, ITerm perTerm) : base(netValue, nextPayDate, perTerm)
         {
-            Value = value;
-            PerTerm = null;
-            OnDate = date.Date;
         }
-        
-        public Expense(decimal value, DateTime date, ITerm perTerm)
+
+        public Expense(decimal netValue, DateTime nextPayDate) : base(netValue, nextPayDate)
         {
-            Value = value;
-            PerTerm = perTerm;
-            OnDate = date.Date;
+        }
+
+        public override decimal CalcValue
+        {
+            get { return -(NetValue); }
         }
     }
 }

@@ -8,5 +8,10 @@ namespace HomeBudget.Model
         {
             return toThis.AddDays(7);
         }
+
+        public bool IsMatchingDate(DateTime referenceDate, DateTime targetDate)
+        {
+            return (targetDate.Subtract(referenceDate).Days%7 == 0);
+        }
     }
 }
