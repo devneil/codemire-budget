@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="AccountDataPoints.cs" />
+    <Compile Include="Annually.cs" />
     <Compile Include="Budget.cs" />
     <Compile Include="DataPoints.cs" />
     <Compile Include="Expense.cs" />
@@ -48,6 +49,8 @@
     <Compile Include="Monthly.cs" />
     <Compile Include="Fortnightly.cs" />
     <Compile Include="Income.cs" />
+    <Compile Include="NAnnually.cs" />
+    <Compile Include="NMonthly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transaction.cs" />
     <Compile Include="Weekly.cs" />

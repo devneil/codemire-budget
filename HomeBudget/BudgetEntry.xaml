@@ -1,0 +1,14 @@
+﻿<Window x:Class="HomeBudget.BudgetEntry"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="BudgetEntry" Height="300" Width="300">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Entry Type"></TextBlock>
+            <ComboBox Height="269" VerticalAlignment="Bottom"></ComboBox>
+            <Rectangle Fill="Blue" Height="50"></Rectangle>
+            <Rectangle Fill="BlueViolet" Height="20" Stretch="Fill"></Rectangle>
+        </StackPanel>
+        
+    </Grid>
+</Window>

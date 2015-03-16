@@ -54,6 +54,7 @@
     <Compile Include="FortnightlyIncomeTest.cs" />
     <Compile Include="GraphDataTest.cs" />
     <Compile Include="MonthlyIncomeTest.cs" />
+    <Compile Include="NMonthly.cs" />
     <Compile Include="OneOffIncomeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WeeklyIncomeTest.cs" />

@@ -13,6 +13,7 @@ namespace HomeBudget.ModelTest
         [SetUp]
         public void SetUp()
         {
+            // todo how are eom handled?
             _account = new Account("");
         }
 
@@ -44,7 +45,7 @@ namespace HomeBudget.ModelTest
 
             balance.Should().Be(100);
         }
-        
+
         [TestCase(0, 100)]
         [TestCase(1, 200)]
         [TestCase(2, 300)]
@@ -72,9 +73,6 @@ namespace HomeBudget.ModelTest
 
             balance.Should().Be(expected);
         }
-
-
-
+        
     }
-
 }
